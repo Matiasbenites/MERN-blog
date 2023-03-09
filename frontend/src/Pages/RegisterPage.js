@@ -4,7 +4,6 @@ export default function RegisterPage() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   async function register(ev) {
     ev.preventDefault();
     const response = await fetch("http://localhost:4000/register", {
@@ -23,18 +22,21 @@ export default function RegisterPage() {
       <h1>Register</h1>
       <input
         type="text"
+        name="username"
         placeholder="username"
         value={username}
         onChange={(ev) => setUsername(ev.target.value)}
       ></input>
       <input
         type="email"
+        name="email"
         placeholder="email"
         value={email}
         onChange={(ev) => setEmail(ev.target.value)}
       ></input>
       <input
         type="password"
+        name="password"
         placeholder="password"
         value={password}
         onChange={(ev) => setPassword(ev.target.value)}
