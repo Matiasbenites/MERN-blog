@@ -20,8 +20,3 @@ mongoose
 app.listen(4000, "localhost", () => {
   console.log("Servidor funcionando correctamente en puerto 4000  💫💫💫");
 });
-
-//blog
-//v440kAezADLLThC1
-//mongodb+srv://blog:v440kAezADLLThC1@cluster0.d3hin0y.mongodb.net/?retryWrites=true&w=majority
-//
