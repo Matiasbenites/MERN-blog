@@ -1,10 +1,10 @@
-// import express from "express";
-// import registerRoute from "./registerRoute";
+const express = require("Express");
+const registerRoute = require("./registerRoute");
 
-// const indexRoute = express.Router();
+const indexRoute = express.Router();
 
-// indexRoute.use("/register", registerRoute);
-// // indexRoute.get("/api", loginRoute);
-// // indexRoute.get("/api", homeRoute);
+indexRoute.use("/register", registerRoute);
+// indexRoute.get("/login", loginRoute);
+// indexRoute.get("/home", homeRoute);
 
-// export default indexRoute;
+module.exports = indexRoute;
