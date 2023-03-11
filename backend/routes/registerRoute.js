@@ -1,5 +1,8 @@
 const express = require("Express");
 const userModel = require("../models/userModel");
+const bcrypt = require("bcryptjs");
+
+const salt = bcrypt.genSaltSync(10);
 
 const registerRoute = express.Router();
 
@@ -9,8 +12,7 @@ registerRoute.post("/", async (req, res) => {
     const userDoc = await userModel.create({
       username,
       email,
-      password,
-      // bcrypt.hashSync(password, salt),
+      password: bcrypt.hashSync(password, salt),
     });
     res.json(userDoc);
   } catch (e) {
