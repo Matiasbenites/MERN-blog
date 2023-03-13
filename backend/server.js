@@ -6,7 +6,7 @@ const indexRoute = require("./routes/indexRoute.js");
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 
 app.use("/", indexRoute);
 
