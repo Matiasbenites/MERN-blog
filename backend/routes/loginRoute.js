@@ -3,8 +3,9 @@ const userModel = require("../models/userModel");
 const loginRoute = express.Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const cookieParser = require("cookie-parser");
 
-const salt = bcrypt.genSaltSync(10);
+app.use(cookieParser());
 const secret = "asfdagagskhjkjriee";
 
 loginRoute.post("/login", async (req, res) => {
@@ -15,10 +16,10 @@ loginRoute.post("/login", async (req, res) => {
     //logged in
     jwt.sign({ username, id: userDoc._id }, secret, {}, (err, token) => {
       if (err) throw err;
-      res.cookie("token", token).json("ok");
+      res.cookie("token", token).json({ id: userDoc._id, username });
     });
   } else {
-    res.status(400).json("Credentials are wrong");
+    res.status(400).json("Wrong credentials");
   }
 });
 
