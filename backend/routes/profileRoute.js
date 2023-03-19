@@ -1,5 +1,8 @@
 const express = require("Express");
 const profileRoute = express.Router();
+const cookieParser = require("cookie-parser");
+
+app.use(cookieParser());
 
 profileRoute.get("/profile", (req, res) => {
   const { token } = req.cookies;
