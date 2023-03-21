@@ -2,11 +2,9 @@ const express = require("Express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const indexRoute = require("./routes/indexRoute.js");
-const cookieParser = require("cookie-parser");
 
 const app = express();
 
-app.use(cookieParser());
 app.use(express.json());
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 
